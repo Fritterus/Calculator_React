@@ -1,0 +1,1 @@
+export const WRITE_HISTORY = 'WRITE_HISTORY'
