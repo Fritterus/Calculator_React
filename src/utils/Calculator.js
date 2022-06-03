@@ -153,7 +153,10 @@ export const getAnswer = expression => {
         if(!isNumberCheck(result)) {
             throw new Error('Expression result is NaN')
         }
-        else return result
+        if(Number.isInteger(result)) {
+            return result.toString()
+        }
+        else return result.toFixed(3).toString()
 
     }catch(error) {
         console.log(error)

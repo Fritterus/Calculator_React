@@ -81,15 +81,12 @@ const Keypad = () => {
         const expr = expression.currentExpression
 
         if(answer === expr) {
-            console.log('ой-ой')
             return
         }
         if (answer !== 'Error') {
             dispatch(clearLast(answer))
             dispatch(writeHistory(expression.currentExpression))
         }
-        console.log(answer)
-        console.log(expression)        
     }
 
     const clickHandler = e => {
