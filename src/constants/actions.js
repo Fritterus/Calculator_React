@@ -1,1 +1,1 @@
-export const ACTION_PREFIX = '@/template'
+export const ACTION_PREFIX = '@/template';

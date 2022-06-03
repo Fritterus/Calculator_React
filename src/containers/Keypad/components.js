@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { BORDER_COLOR } from '@/constants'
+import styled from 'styled-components';
+import { BORDER_COLOR } from '@/constants';
 
 export const Keypad = styled.div`
     width: 100%;
@@ -14,7 +14,7 @@ export const Keypad = styled.div`
     justify-content: flex-end;
     padding-right: 100px;
     color: unset;
-`
+`;
 
 export const Button = styled.button`
 
@@ -25,34 +25,33 @@ export const Button = styled.button`
     font: normal normal normal 64px/77px Helvetica;
     cursor: pointer;
     outline: none;
-    grid-column: ${props => props.long.column};
-    grid-row: ${props => props.long.row};
-`
+    grid-column: ${(props) => props.long.column};
+    grid-row: ${(props) => props.long.row};
+`;
 
 Button.defaultProps = {
-    long: {
-        column: '',
-        row: '',
-    },
-}
+  long: {
+    column: '',
+    row: '',
+  },
+};
 
 export const longZeroBtn = {
-    column: '1 / 3',
-    row: '',
-}
+  column: '1 / 3',
+  row: '',
+};
 
 export const longEqualBtn = {
-    column: '4 / 6',
-    row: '',
-}
+  column: '4 / 6',
+  row: '',
+};
 
 export const longAllClearBtn = {
-    row: '1 / 3',
-    column: '',
-}
+  row: '1 / 3',
+  column: '',
+};
 
 export const longClearBtn = {
-    row: '3 / 5',
-    column: '',
-}
-
+  row: '3 / 5',
+  column: '',
+};

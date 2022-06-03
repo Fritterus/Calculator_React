@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Display = styled.div`
     padding-right: 100px;
@@ -12,4 +12,4 @@ export const Display = styled.div`
     align-items: center;
     justify-content: flex-end;
     box-sizing: border-box;
-`
+`;

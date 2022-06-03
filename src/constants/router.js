@@ -1,2 +1,2 @@
-export const HOME_PAGE_ROUTE = '/'
-export const SETTINGS_PAGE_ROUTE = '/Settings'
+export const HOME_PAGE_ROUTE = '/';
+export const SETTINGS_PAGE_ROUTE = '/Settings';

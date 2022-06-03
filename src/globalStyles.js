@@ -1,6 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
-import { BACKGROUND_COLOR } from './constants'
-import { lightTheme } from './themes/lightTheme'
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -24,8 +22,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background: ${props => props.theme.body};
-    color: ${props => props.theme.text};
+    background: ${(props) => props.theme.body};
+    color: ${(props) => props.theme.text};
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -33,24 +31,24 @@ export const GlobalStyles = createGlobalStyle`
 
   #root {
     display: block;
-    background: ${props => props.theme.body};
-    color: ${props => props.theme.text};
+    background: ${(props) => props.theme.body};
+    color: ${(props) => props.theme.text};
   }
 
   button {
-    background: ${props => props.theme.buttonBackground};
-    color: ${props => props.theme.buttonColor};
+    background: ${(props) => props.theme.buttonBackground};
+    color: ${(props) => props.theme.buttonColor};
   }
 
   header {
-    background: ${props => props.theme.buttonBackground};
-    color: ${props => props.theme.buttonColor};
+    background: ${(props) => props.theme.buttonBackground};
+    color: ${(props) => props.theme.buttonColor};
   }
 
   select {
-    background: ${props => props.theme.selectBackground};
-    color: ${props => props.theme.selectColor};
+    background: ${(props) => props.theme.selectBackground};
+    color: ${(props) => props.theme.selectColor};
   }
 
 
-`
+`;

@@ -1,1 +1,1 @@
-export { TOGGLE } from './toggle'
+export { TOGGLE } from './toggle';

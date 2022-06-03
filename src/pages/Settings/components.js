@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: grid;
@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   column-gap: 60px;
   padding-left: 91px;
   justify-content: center;
-`
+`;
 
 export const Name = styled.div`
   text-align: left;
@@ -19,7 +19,7 @@ export const Name = styled.div`
   letter-spacing: 0px;
   color: unset;
   opacity: 1;
-`
+`;
 
 export const SwitchName = styled.div`
   text-align: left;
@@ -29,7 +29,7 @@ export const SwitchName = styled.div`
   letter-spacing: 0px;
   color: unset;
   opacity: 1;
-`
+`;
 
 export const SelectionMenu = styled.select`
   width: 401px;
@@ -42,9 +42,7 @@ export const SelectionMenu = styled.select`
   font: normal normal normal 32px/38px Helvetica;
   color: unset;
   opacity: 1;
-`
-
-
+`;
 
 export const Option = styled.option`
   text-align: left;
@@ -53,7 +51,7 @@ export const Option = styled.option`
   letter-spacing: 0px;
   color: unset;
   opacity: 1;
-`
+`;
 
 export const Button = styled.button`
   width: 401px;
@@ -68,5 +66,4 @@ export const Button = styled.button`
   letter-spacing: 0px;
   color: unset;
   opacity: 1;
-`
-
+`;

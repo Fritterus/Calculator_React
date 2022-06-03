@@ -1,18 +1,16 @@
-import React from 'react'
+import React from 'react';
 
-import theme from '@/theme'
+import theme from '@/theme';
 
-import { Loader } from './components'
+import { Loader } from './components';
 
-const LOADER_SIZE = 100
+const LOADER_SIZE = 100;
 
-export default () => {
-  return (
+export default () => (
     <Loader
       type="Bars"
       color={theme.colors.secondary}
       height={LOADER_SIZE}
       width={LOADER_SIZE}
     />
-  )
-}
+);

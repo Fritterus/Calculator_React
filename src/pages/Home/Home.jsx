@@ -1,16 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-import { PageLayout } from '@/layouts'
+import { PageLayout } from '@/layouts';
 
-import * as Styled from './components'
+import * as Styled from './components';
 
-import Wrapper from '@/components/Wrapper'
-import Display from '@/components/Display'
-import Keypad from '@/containers/Keypad'
-import ControlPanel from '@/containers/ControlPanel'
+import Wrapper from '@/components/Wrapper';
+import Display from '@/components/Display';
+import Keypad from '@/containers/Keypad';
+import ControlPanel from '@/containers/ControlPanel';
 
-export default () => {
-  return (
+export default () => (
     <PageLayout>
       <Styled.GeneralWrapper>
         <Wrapper>
@@ -20,5 +19,4 @@ export default () => {
         <ControlPanel />
       </Styled.GeneralWrapper>
     </PageLayout>
-  )
-}
+);

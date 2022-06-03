@@ -1,22 +1,21 @@
-import React, { Suspense } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import React, { Suspense } from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import { HOME_PAGE_ROUTE, SETTINGS_PAGE_ROUTE } from '@/constants'
-import Loader from '@/components/Loader'
-import Header from '@/components/Header'
+import { ThemeProvider } from 'styled-components';
+import { useSelector } from 'react-redux';
+import { HOME_PAGE_ROUTE, SETTINGS_PAGE_ROUTE } from '@/constants';
+import Loader from '@/components/Loader';
+import Header from '@/components/Header';
 
-import Home from '@/pages/Home'
-import Settings from '@/pages/Settings'
-import { ThemeProvider } from 'styled-components'
+import Home from '@/pages/Home';
+import Settings from '@/pages/Settings';
 
-import { darkTheme } from '@/themes/darkTheme'
-import { lightTheme } from '@/themes/lightTheme'
-import { GlobalStyles } from '@/globalStyles'
-import { useSelector } from 'react-redux'
-
+import { darkTheme } from '@/themes/darkTheme';
+import { lightTheme } from '@/themes/lightTheme';
+import { GlobalStyles } from '@/globalStyles';
 
 export default () => {
-  const theme = useSelector(state => state.theme.currentTheme)
+  const theme = useSelector((state) => state.theme.currentTheme);
   return (
     <Suspense fallback={<Loader />}>
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -36,6 +35,5 @@ export default () => {
         </Switch>
       </ThemeProvider>
     </Suspense>
-  )
-}
-
+  );
+};

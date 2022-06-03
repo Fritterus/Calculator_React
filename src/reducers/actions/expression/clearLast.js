@@ -1,1 +1,1 @@
-export const CLEAR_LAST = 'CLEAR_LAST'
+export const CLEAR_LAST = 'CLEAR_LAST';

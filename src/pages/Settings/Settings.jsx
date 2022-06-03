@@ -1,24 +1,24 @@
-import React from 'react'
-import * as Styled from './components'
-import { clearHistory } from '@/reducers/actionCreators/history'
-import { toggleTheme } from '@/reducers/actionCreators/theme'
-import { connect } from 'react-redux'
-import { PageLayout } from '@/layouts'
-import propTypes from "prop-types"
+import React from 'react';
+import { connect } from 'react-redux';
+import propTypes from 'prop-types';
+import * as Styled from './components';
+import { clearHistory } from '@/reducers/actionCreators/history';
+import { toggleTheme } from '@/reducers/actionCreators/theme';
+import { PageLayout } from '@/layouts';
 
 class Settings extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       theme: '',
-    }
+    };
   }
 
   render() {
     const {
       clearHistory,
       toggleTheme,
-    } = this.props
+    } = this.props;
 
     return (
       <PageLayout>
@@ -47,19 +47,17 @@ class Settings extends React.Component {
           </Styled.Button>
         </Styled.Wrapper>
       </PageLayout>
-    )
+    );
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    clearHistory: () => dispatch(clearHistory()),
-    toggleTheme: value => dispatch(toggleTheme(value)),
-  }
-}
+const mapDispatchToProps = (dispatch) => ({
+  clearHistory: () => dispatch(clearHistory()),
+  toggleTheme: (value) => dispatch(toggleTheme(value)),
+});
 
-export default connect(null, mapDispatchToProps)(Settings)
+export default connect(null, mapDispatchToProps)(Settings);
 
 Settings.propTypes = {
   prop: propTypes.func,
-}
+};
