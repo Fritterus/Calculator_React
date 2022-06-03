@@ -7,17 +7,11 @@ import { toggleTheme } from '@/reducers/actionCreators/theme';
 import { PageLayout } from '@/layouts';
 
 class Settings extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      theme: '',
-    };
-  }
-
   render() {
     const {
       clearHistory,
       toggleTheme,
+      theme,
     } = this.props;
 
     return (
@@ -31,7 +25,10 @@ class Settings extends React.Component {
         </Styled.SwitchName>
 
         <Styled.Wrapper>
-          <Styled.SelectionMenu onChange={({ target }) => toggleTheme(target.value)}>
+          <Styled.SelectionMenu
+            onChange={({ target }) => toggleTheme(target.value)}
+            onClick={() => console.log(theme)}
+            value={theme.currentTheme}>
             <Styled.Option value="light">
               Light theme
             </Styled.Option>
@@ -51,12 +48,16 @@ class Settings extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  theme: state.theme,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   clearHistory: () => dispatch(clearHistory()),
   toggleTheme: (value) => dispatch(toggleTheme(value)),
 });
 
-export default connect(null, mapDispatchToProps)(Settings);
+export default connect(mapStateToProps, mapDispatchToProps)(Settings);
 
 Settings.propTypes = {
   prop: propTypes.func,

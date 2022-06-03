@@ -1,7 +1,7 @@
 import { TOGGLE } from './actions/theme';
 
 const INITIAL_STATE = {
-  currentTheme: 'light',
+  currentTheme: '',
 };
 
 export const themeReducer = (state = INITIAL_STATE, action) => {

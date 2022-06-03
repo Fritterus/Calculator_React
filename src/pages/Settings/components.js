@@ -67,3 +67,5 @@ export const Button = styled.button`
   color: unset;
   opacity: 1;
 `;
+
+export const theme = 'light';
