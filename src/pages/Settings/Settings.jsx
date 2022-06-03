@@ -27,7 +27,6 @@ class Settings extends React.Component {
         <Styled.Wrapper>
           <Styled.SelectionMenu
             onChange={({ target }) => toggleTheme(target.value)}
-            onClick={() => console.log(theme)}
             value={theme.currentTheme}>
             <Styled.Option value="light">
               Light theme
