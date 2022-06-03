@@ -7,8 +7,7 @@ import { writeHistory } from '@/reducers/actionCreators/history';
 import { getAnswer } from '@/utils/calculator';
 
 const operations = [
-  '/', '*', '+',
-  '-', '%',
+  '/', '*', '%',
 ];
 
 const getStylesLongBtn = (value) => {
@@ -42,11 +41,15 @@ const Keypad = () => {
       dispatch(clearLast(''));
     }
     if (
-      expr.length === 1
-            && expr.includes('0')
+      expr === '0'
             && !operations.includes(value)
     ) {
-      dispatch(clearLast(value));
+      dispatch(clearLast(''));
+    }
+    if (
+      expr === '0'
+            && operations.includes(value)
+    ) {
       return;
     }
 
