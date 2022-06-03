@@ -55,7 +55,7 @@ const Keypad = () => {
     dispatch(writeDownExpr(value));
   };
 
-  const clearLastHelper = (expression) => {
+  const clearLastHandler = (expression) => {
     if (expression.length === 1) {
       dispatch(allClear());
     } else {
@@ -83,7 +83,7 @@ const Keypad = () => {
         break;
       }
       case 'CE': {
-        clearLastHelper(expression.currentExpression);
+        clearLastHandler(expression.currentExpression);
         break;
       }
       case '=': {
