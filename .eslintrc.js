@@ -33,5 +33,6 @@ module.exports = {
     'react/display-name': 'off',
     'no-shadow': 'off',
     'no-mixed-operators': 'off',
+    'no-restricted-globals': 'off',
   },
 };

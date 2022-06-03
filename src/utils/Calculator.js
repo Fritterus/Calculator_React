@@ -141,7 +141,8 @@ export const getAnswer = (expression) => {
     if (Number.isInteger(result)) {
       return result.toString();
     }
-    return result.toFixed(3).toString();
+    console.log(parseFloat(result));
+    return parseFloat(result.toFixed(3)).toString();
   } catch (error) {
     console.log(error);
     return 'Error';

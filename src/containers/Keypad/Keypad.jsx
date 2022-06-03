@@ -4,7 +4,7 @@ import * as Styled from './components';
 import { BUTTON_VALUES } from '@/constants/index';
 import { writeDownExpr, allClear, clearLast } from '@/reducers/actionCreators/expression';
 import { writeHistory } from '@/reducers/actionCreators/history';
-import { getAnswer } from '@/utils/Calculator';
+import { getAnswer } from '@/utils/calculator';
 
 const operations = [
   '/', '*', '+',
