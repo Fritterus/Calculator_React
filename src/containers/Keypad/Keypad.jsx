@@ -35,9 +35,15 @@ const Keypad = () => {
   const dispatch = useDispatch();
 
   const writeDownHandler = (value) => {
+    const expr = expression.currentExpression;
+
+    if (expr === 'Error'
+        || expr === 'Infinity') {
+      dispatch(clearLast(''));
+    }
     if (
-      expression.currentExpression.length === 1
-            && expression.currentExpression.includes('0')
+      expr.length === 1
+            && expr.includes('0')
             && !operations.includes(value)
     ) {
       dispatch(clearLast(value));
@@ -45,9 +51,9 @@ const Keypad = () => {
     }
 
     if (
-      operations.includes(value) && operations.includes(expression.currentExpression.slice(-1))
-            || operations.includes(value) && expression.currentExpression === ''
-            || value === '.' && expression.currentExpression.slice(-1) === '.'
+      operations.includes(value) && operations.includes(expr.slice(-1))
+            || operations.includes(value) && expr === ''
+            || value === '.' && expr.slice(-1) === '.'
     ) {
       return;
     }
@@ -68,6 +74,10 @@ const Keypad = () => {
     const expr = expression.currentExpression;
 
     if (answer === expr) {
+      return;
+    }
+    if (answer === 'Error') {
+      dispatch(clearLast(answer));
       return;
     }
     if (answer !== 'Error') {
