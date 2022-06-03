@@ -127,7 +127,7 @@ const baseAlgorithm = (expression) => {
     return NUMBER_STACK.pop();
   } catch (err) {
     console.log(err);
-    return -1;
+    return 'Error';
   }
 };
 
