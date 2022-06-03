@@ -1,4 +1,4 @@
-class Command {
+export class Command {
   constructor() {
     if (this.constructor.name === 'Command') {
       throw new Error('Can\'t create instance');
@@ -6,10 +6,10 @@ class Command {
   }
 
   execute() {
-    throw new Error('Method not described');
+    throw new Error('Method not describe');
   }
 
   undo() {
-    throw new Error('Method not described');
+    throw new Error('Method not describe');
   }
 }

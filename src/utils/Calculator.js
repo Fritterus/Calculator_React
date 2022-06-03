@@ -2,6 +2,11 @@ import {
   OPERATIONS, OPERATION_STACK, NUMBER_STACK,
 } from '@/constants/index';
 
+import {
+  Calculator, Invoker, AddCommand, SubtractCommand,
+  MultiplyCommand, DivideCommand, DivideWithRemainderCommand,
+} from '@/utils/CommandPattern/index';
+
 Array.prototype.peek = function peek() {
   if (this.length === 0) {
     throw new Error('Error');
@@ -37,38 +42,44 @@ const getPriority = (operation) => {
   return 0;
 };
 
-const calculate = () => {
-  let leftOperand;
-  let rightOperand;
+const calculatorInit = () => {
+  const rightOperand = parseFloat(NUMBER_STACK.pop());
+  const leftOperand = parseFloat(NUMBER_STACK.pop());
+  const calculator = new Calculator(leftOperand, rightOperand);
+
+  return calculator;
+};
+
+const getCommand = (invoker, calculator) => {
   switch (OPERATION_STACK.pop()) {
     case '*':
-      rightOperand = parseFloat(NUMBER_STACK.pop());
-      leftOperand = parseFloat(NUMBER_STACK.pop());
-      NUMBER_STACK.push(leftOperand * rightOperand);
+      invoker.setCommand(new MultiplyCommand(calculator));
       break;
     case '/':
-      rightOperand = parseFloat(NUMBER_STACK.pop());
-      leftOperand = parseFloat(NUMBER_STACK.pop());
-      NUMBER_STACK.push(leftOperand / rightOperand);
+      invoker.setCommand(new DivideCommand(calculator));
       break;
     case '%':
-      rightOperand = parseFloat(NUMBER_STACK.pop());
-      leftOperand = parseFloat(NUMBER_STACK.pop());
-      NUMBER_STACK.push(leftOperand % rightOperand);
+      invoker.setCommand(new DivideWithRemainderCommand(calculator));
       break;
     case '+':
-      rightOperand = parseFloat(NUMBER_STACK.pop());
-      leftOperand = parseFloat(NUMBER_STACK.pop());
-      NUMBER_STACK.push(leftOperand + rightOperand);
+      invoker.setCommand(new AddCommand(calculator));
       break;
     case '-':
-      rightOperand = parseFloat(NUMBER_STACK.pop());
-      leftOperand = parseFloat(NUMBER_STACK.pop());
-      NUMBER_STACK.push(leftOperand - rightOperand);
+      invoker.setCommand(new SubtractCommand(calculator));
       break;
     default:
       break;
   }
+};
+
+const calculate = () => {
+  const invoker = new Invoker();
+
+  getCommand(invoker, calculatorInit());
+
+  const result = invoker.command.execute();
+
+  NUMBER_STACK.push(result);
 };
 
 const operationFilter = (operation) => {
