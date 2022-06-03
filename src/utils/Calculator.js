@@ -1,4 +1,3 @@
-
 import { OPERATIONS, NUMBER_REGEX, OPERATION_STACK, NUMBER_STACK } from '@/constants/index'
 
 Array.prototype.peek = function () {
@@ -73,7 +72,7 @@ const calculate = () => {
             NUMBER_STACK.push(leftOperand + rightOperand)
             break
         case '-':
-            n1 = parseFloat(NUMBER_STACK.pop())
+            rightOperand = parseFloat(NUMBER_STACK.pop())
             leftOperand = parseFloat(NUMBER_STACK.pop())
             NUMBER_STACK.push(leftOperand - rightOperand)
             break
@@ -108,7 +107,7 @@ const baseAlgorithm = expression => {
     try {
         for (const item of expression) {
 
-            if (!Number.isNaN(parseFloat(item))) {
+            if (isNumberCheck(parseFloat(item))) {
                 NUMBER_STACK.push(item)
                 continue
             }
@@ -132,14 +131,32 @@ const getNumbers = value => {
     return [...value.matchAll(NUMBER_REGEX)].map(x => x[0])
 }
 
+const isNumberCheck = number => {
+    return !isNaN(number);
+}
+
 export const getAnswer = expression => {
-    const splitted = expression.replace(/[\+\-\*\/\%\(\)]/g, match => ` ${match} `)
-        .split(' ')
-        .filter(x => x !== ' ' && x !== '')
-        .map(x => OPERATIONS.includes(x) ? x : +x)
-    console.log(splitted)
+    try {
+        if (isNumberCheck(expression)) {
+            return expression;
+        }
+        const splitted = expression.replace(/[\+\-\*\/\%\(\)]/g, match => ` ${match} `)
+            .split(' ')
+            .filter(x => x !== ' ' && x !== '')
+            .map(x => OPERATIONS.includes(x) ? x : +x)
+        console.log(splitted)
+    
+        expression = expression.split(/(\d+)/).filter(x => x)
+    
+        const result = baseAlgorithm(splitted)
 
-    expression = expression.split(/(\d+)/).filter(x => x)
+        if(!isNumberCheck(result)) {
+            throw new Error('Expression result is NaN')
+        }
+        else return result
 
-    return baseAlgorithm(splitted)
+    }catch(error) {
+        console.log(error)
+        return 'Error'      
+    }
 }

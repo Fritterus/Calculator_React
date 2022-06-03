@@ -1,4 +1,3 @@
-import { handleActions } from 'redux-actions'
 import { WRITE_DOWN_EXPRESSION, ALL_CLEAR, CLEAR_LAST } from '@/reducers/actions/expression'
 
 const INITIAL_STATE = {

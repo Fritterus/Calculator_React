@@ -39,7 +39,6 @@ const getStylesLongBtn = value => {
 
 const Keypad = () => {
     const expression = useSelector(state => state.expression)
-    const history = useSelector(state => state.history)
     const dispatch = useDispatch()
 
     const writeDownHandler = value => {
@@ -78,17 +77,21 @@ const Keypad = () => {
     }
 
     const equalsClickHandler = () => {
-        let answer = ''
+        const answer = getAnswer(expression.currentExpression)
         const expr = expression.currentExpression
 
-
-        if (answer.toString() === expr) {
+        if(answer === expr) {
+            console.log('ой-ой')
             return
         }
-        answer = getAnswer(expression.currentExpression)
-        dispatch(clearLast(answer.toString()))
-        dispatch(writeHistory(expression.currentExpression))
+        if (answer !== 'Error') {
+            dispatch(clearLast(answer))
+            dispatch(writeHistory(expression.currentExpression))
+        }
+        console.log(answer)
+        console.log(expression)        
     }
+
     const clickHandler = e => {
         switch (e.target.textContent) {
             case 'C': {
@@ -105,6 +108,7 @@ const Keypad = () => {
             }
             default: {
                 writeDownHandler(e.target.textContent)
+                console.log(expression.currentExpression)
             }
         }
     }
