@@ -4,7 +4,7 @@ describe('Theme Toggle tests', () => {
     cy.viewport('macbook-16');
   });
 
-  it.only('can change theme on dark', () => {
+  it('can change theme on dark', () => {
     cy.visit('/Settings');
     cy.get('select').select('light');
     cy.get('select').select('dark');
@@ -15,6 +15,7 @@ describe('Theme Toggle tests', () => {
 
   it('can change theme on light', () => {
     cy.visit('/Settings');
+    cy.get('select').select('dark');
     cy.get('select').select('light');
     cy.get('body').should('have.css', 'background-color', 'rgb(255, 255, 255)');
     cy.get('button').should('have.css', 'background-color', 'rgb(242, 242, 242)');
