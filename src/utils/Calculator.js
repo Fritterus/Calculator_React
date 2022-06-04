@@ -1,5 +1,6 @@
 import {
-  OPERATIONS, OPERATION_STACK, NUMBER_STACK, PLUS_MINUS,
+  OPERATIONS, OPERATION_STACK,
+  NUMBER_STACK, PLUS_MINUS, OPERATIONS_NO_BRACKETS,
 } from '@/constants/index';
 
 import {
@@ -133,35 +134,26 @@ const baseAlgorithm = (expression) => {
 
 const getSplittedExpression = (expression) => {
   let counter = 0;
-  const splitted = expression.split('').reduce((acc, curr) => {
-    if (OPERATIONS.includes(curr)) {
-      counter++;
-      return [...acc, curr];
-    }
-    if (curr === '.') {
-      if (!isNaN(acc[counter - 1])) {
-        acc[counter - 1] += curr;
-        return acc;
-      }
-    }
-    if (!isNaN(curr)) {
-      if (PLUS_MINUS.includes(acc[counter - 1])
-          && (acc[counter - 2] === '(' || acc[counter - 2] === undefined)) {
-        acc[counter - 1] += curr;
-        return acc;
-      }
-      if (!isNaN(acc[counter - 1])
-            || acc[counter - 1] === '.') {
-        acc[counter - 1] += curr;
-        return acc;
-      }
-      counter++;
-      return [...acc, curr];
-    }
 
-    counter++;
-    return [...acc, curr];
-  }, []);
+  const splitted = expression.replace(/[+\-*/%()]/g, (match) => ` ${match} `)
+    .split(' ')
+    .filter((x) => x !== ' ' && x !== '')
+    .map((x) => (OPERATIONS.includes(x) ? x : +x))
+    .reduce((acc, curr) => {
+      if (!isNaN(curr)) {
+        if (PLUS_MINUS.includes(acc[counter - 1])
+            && (acc[counter - 2] === '('
+            || OPERATIONS_NO_BRACKETS.includes(acc[counter - 2])
+            || acc[counter - 2] === undefined)) {
+          acc[counter - 1] += curr;
+          return acc;
+        }
+        counter++;
+        return [...acc, curr];
+      }
+      counter++;
+      return [...acc, curr];
+    }, []);
 
   return splitted;
 };
