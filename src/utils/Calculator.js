@@ -131,18 +131,52 @@ const baseAlgorithm = (expression) => {
   }
 };
 
+const plusMinus = [
+  '+', '-',
+];
+
+const getSplittedExpression = (expression) => {
+  let counter = 0;
+  const splitted = expression.split('').reduce((acc, curr) => {
+    if (OPERATIONS.includes(curr)) {
+      counter++;
+      return [...acc, curr];
+    }
+    if (curr === '.') {
+      if (!isNaN(acc[counter - 1])) {
+        acc[counter - 1] += curr;
+        return acc;
+      }
+    }
+    if (!isNaN(curr)) {
+      if (plusMinus.includes(acc[counter - 1])
+          && (acc[counter - 2] === '(' || acc[counter - 2] === undefined)) {
+        acc[counter - 1] += curr;
+        return acc;
+      }
+      if (!isNaN(acc[counter - 1])
+            || acc[counter - 1] === '.') {
+        acc[counter - 1] += curr;
+        return acc;
+      }
+      counter++;
+      return [...acc, curr];
+    }
+
+    counter++;
+    return [...acc, curr];
+  }, []);
+
+  return splitted;
+};
+
 export const getAnswer = (expression) => {
   try {
     if (isNumberCheck(expression)) {
       return expression;
     }
-    const splitted = expression.replace(/[+\-*/%()]/g, (match) => ` ${match} `)
-      .split(' ')
-      .filter((x) => x !== ' ' && x !== '')
-      .map((x) => (OPERATIONS.includes(x) ? x : +x));
-    console.log(splitted);
 
-    expression = expression.split(/(\d+)/).filter((x) => x);
+    const splitted = getSplittedExpression(expression);
 
     const result = baseAlgorithm(splitted);
 
