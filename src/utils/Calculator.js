@@ -1,5 +1,5 @@
 import {
-  OPERATIONS, OPERATION_STACK, NUMBER_STACK,
+  OPERATIONS, OPERATION_STACK, NUMBER_STACK, PLUS_MINUS,
 } from '@/constants/index';
 
 import {
@@ -131,10 +131,6 @@ const baseAlgorithm = (expression) => {
   }
 };
 
-const plusMinus = [
-  '+', '-',
-];
-
 const getSplittedExpression = (expression) => {
   let counter = 0;
   const splitted = expression.split('').reduce((acc, curr) => {
@@ -149,7 +145,7 @@ const getSplittedExpression = (expression) => {
       }
     }
     if (!isNaN(curr)) {
-      if (plusMinus.includes(acc[counter - 1])
+      if (PLUS_MINUS.includes(acc[counter - 1])
           && (acc[counter - 2] === '(' || acc[counter - 2] === undefined)) {
         acc[counter - 1] += curr;
         return acc;
