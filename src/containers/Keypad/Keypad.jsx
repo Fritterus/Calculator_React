@@ -5,6 +5,7 @@ import { BUTTON_VALUES } from '@/constants/index';
 import { writeDownExpr, allClear, clearLast } from '@/reducers/actionCreators/expression';
 import { writeHistory } from '@/reducers/actionCreators/history';
 import { getAnswer } from '@/utils/calculator';
+import { PLUS_MINUS } from '@/constants/operations';
 
 const operations = [
   '/', '*', '%',
@@ -52,7 +53,15 @@ const Keypad = () => {
     ) {
       return;
     }
-
+    if (value === '+' && expr[expr.length - 1] === '-'
+    || value === '-' && expr[expr.length - 1] === '+') {
+      dispatch(clearLast(expr.slice(0, -1)));
+      dispatch(writeDownExpr(value));
+      return;
+    }
+    if (PLUS_MINUS.includes(value) && PLUS_MINUS.includes(expr[expr.length - 1])) {
+      return;
+    }
     if (
       operations.includes(value) && operations.includes(expr.slice(-1))
             || operations.includes(value) && expr === ''
