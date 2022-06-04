@@ -5,3 +5,6 @@ export const PLUS_MINUS = ['+', '-'];
 export const OPERATIONS = [
   '+', '-', '*', '/', '(', ')', '%',
 ];
+export const OPERATIONS_NO_BRACKETS = [
+  '+', '-', '*', '/', '%',
+];
