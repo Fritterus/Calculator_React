@@ -4,7 +4,7 @@ import { HEADER_COLOR, BORDER_COLOR, HEADER_TEXT_COLOR } from '@/constants/index
 
 export const Header = styled.header`
     width: 100%;
-    height: 90px;
+    height: 12%;
     background: ${HEADER_COLOR} 0% 0%;
     border: 1px solid ${BORDER_COLOR}};
     display: flex;
