@@ -3,7 +3,7 @@ import { BORDER_COLOR } from '@/constants';
 
 export const Main = styled.div`
     width: 25%;
-    height: 90%;
+    height: 100%;
     display: block;
     border-left: 2px solid ${BORDER_COLOR};
     margin-left: 20px;
