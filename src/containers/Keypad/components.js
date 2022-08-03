@@ -5,10 +5,10 @@ export const Keypad = styled.div`
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(5, 95px);
-    grid-template-rows: repeat(5, 95px);
-    row-gap: 13px;
-    column-gap: 85px;
+    grid-template-columns: repeat(5, 10%);
+    grid-template-rows: repeat(5, 18%);
+    row-gap: 1%;
+    column-gap: 7%;
     border-top: 2px solid ${BORDER_COLOR};
     padding: 15px;
     justify-content: flex-end;
@@ -22,7 +22,7 @@ export const Button = styled.button`
     border: 1px solid unset;
     border-radius: 32px;
     opacity: 1;
-    font: normal normal normal 64px/77px Helvetica;
+    font: normal normal normal 58px/63px Helvetica;
     cursor: pointer;
     outline: none;
     grid-column: ${(props) => props.long.column};
