@@ -21,7 +21,7 @@ export const Heading = styled.h3``;
 
 export const GeneralWrapper = styled.div`
     width: 100%;
-    height: 100%;
-    padding: 10px;
+    height: 88%;
+    padding: 0px;
     display: flex;
 `;
