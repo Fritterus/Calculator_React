@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import * as Styled from './components';
-import History from '@/components/History';
+import { History } from '@/components/History';
 
-const ControlPanel = () => {
+export const ControlPanel = () => {
   const [toggle, setToggle] = useState(false);
 
   function buttonClickHandle() {
@@ -15,7 +15,7 @@ const ControlPanel = () => {
 
   return (
         <Styled.Main>
-            <Styled.NameWrapper onClick={() => { buttonClickHandle(); }}>
+            <Styled.NameWrapper onClick={buttonClickHandle}>
                 <Styled.toggleNameSection
                  clicked={toggle === true ? Styled.clicked : Styled.unClicked}>
                     History
@@ -32,5 +32,3 @@ const ControlPanel = () => {
         </Styled.Main>
   );
 };
-
-export default ControlPanel;
