@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import * as Styled from './components';
 
-const Display = () => {
+export const Display = () => {
   const expression = useSelector((state) => state.expression);
   return (
         <Styled.Display>
@@ -10,5 +10,3 @@ const Display = () => {
         </Styled.Display>
   );
 };
-
-export default Display;
