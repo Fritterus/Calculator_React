@@ -35,5 +35,6 @@ module.exports = {
     'no-mixed-operators': 0,
     'no-restricted-globals': 0,
     'no-plusplus': 0,
+    'linebreak-style': 0,
   },
 };
