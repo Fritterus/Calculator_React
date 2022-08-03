@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import * as Styled from './components';
 
-const History = () => {
+export const History = () => {
   const history = useSelector((state) => state.history.currentValue);
 
   return (
@@ -11,5 +11,3 @@ const History = () => {
         </Styled.List>
   );
 };
-
-export default History;
