@@ -1,1 +1,1 @@
-export { default } from './Keypad';
+export { Keypad } from './Keypad';
