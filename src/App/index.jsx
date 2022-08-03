@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { useSelector } from 'react-redux';
 import { HOME_PAGE_ROUTE, SETTINGS_PAGE_ROUTE } from '@/constants';
 import Loader from '@/components/Loader';
-import Header from '@/components/Header';
+import { Header } from '@/components/Header';
 
 import Home from '@/pages/Home';
 import Settings from '@/pages/Settings';
