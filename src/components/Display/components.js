@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Display = styled.div`
     padding-right: 100px;
-    height: 77px;
+    height: 12%;
     text-align: left;
     font: normal normal normal 64px/77px Helvetica;
     letter-spacing: 0px;
